@@ -3,11 +3,12 @@ import BackEndUrl from "../config/BackEndUrl";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import { addtoCart } from "../cartSlice";
+import { useDispatch } from "react-redux";
 
 const Home=()=>{
   const [mydata, setMydata] = useState([]);
-
+  const dispatch = useDispatch();
 
   const loadData=async()=>{
       let api=`${BackEndUrl}/product/homedisplay`;
@@ -36,7 +37,7 @@ const ans=mydata.map((key)=>{
           Description : {key.description} for - {key.category}
           <b> <h4> Price {key.price} </h4></b>
         </Card.Text>
-        <Button variant="primary">Add to Cart</Button>
+        <Button variant="primary" onClick={()=>{dispatch(addtoCart({id:key._id, name:key.name, description:key.description, price:key.price, category:key.category, images:key.images, defaultImage:key.defaultImage, qnty:1 }))}}>Add to Cart</Button>
       </Card.Body>
     </Card>
     

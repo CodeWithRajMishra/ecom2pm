@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import AdminLogin from "./admin/adminlogin";
 import AdminDashBoard from "./admin/AdminDashBoard";
 import UploadProduct from "./admin/UploadProduct";
+import CartData from "./CartData";
 const App=()=>{
   return(
     <>
@@ -12,6 +13,7 @@ const App=()=>{
           <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>} />
            <Route path="/admin" element={<AdminLogin/>}></Route>
+           <Route path="cartdata" element={<CartData/>}/>
           </Route>
          </Routes>
         

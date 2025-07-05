@@ -3,8 +3,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const Header=()=>{
-    return(
+
+const cartData= useSelector(state=>state.mycart.cart);
+const cartLength= cartData.length;
+const navigate = useNavigate();
+
+
+  return(
         <>
       <Navbar bg="primary" data-bs-theme="dark">
         <Container>
@@ -15,9 +23,10 @@ const Header=()=>{
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
          
-         <span className='itemcount'> 8 </span> 
+         <span className='itemcount'> {cartLength} </span> 
 
-          <FaShoppingCart className='carticon' /> 
+          <FaShoppingCart className='carticon'
+          onClick={()=>{navigate("/cartdata")}} style={{cursor:"pointer"}} /> 
         </Container>
       </Navbar>
    
