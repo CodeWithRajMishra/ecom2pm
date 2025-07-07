@@ -5,6 +5,8 @@ import AdminLogin from "./admin/adminlogin";
 import AdminDashBoard from "./admin/AdminDashBoard";
 import UploadProduct from "./admin/UploadProduct";
 import CartData from "./CartData";
+import Signup from "./pages/Signup";
+import Registration from "./pages/Registration";
 const App=()=>{
   return(
     <>
@@ -12,6 +14,9 @@ const App=()=>{
          <Routes>
           <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>} />
+          <Route path="home" element={<Home/>}/>
+          <Route path="signup" element={<Signup/>}/>
+          <Route path="registration" element={<Registration/>}/>
            <Route path="/admin" element={<AdminLogin/>}></Route>
            <Route path="cartdata" element={<CartData/>}/>
           </Route>
