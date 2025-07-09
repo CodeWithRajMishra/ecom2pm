@@ -12,7 +12,9 @@ const cartData= useSelector(state=>state.mycart.cart);
 const cartLength= cartData.length;
 const navigate = useNavigate();
 
-
+const logout=()=>{
+  localStorage.clear();
+}
   return(
         <>
       <Navbar bg="primary" data-bs-theme="dark">
@@ -24,6 +26,8 @@ const navigate = useNavigate();
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
 
+         <span> Welcome {localStorage.getItem("username")} 
+          <a href="#" onClick={logout}>Logout</a></span>
           <span style={{cursor:"pointer"}} onClick={()=>{navigate("/signup")}}> SignIn </span>
 
          <span className='itemcount'> {cartLength} </span> 
