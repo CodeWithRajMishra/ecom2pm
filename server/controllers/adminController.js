@@ -1,5 +1,6 @@
 const AdminModel= require("../models/adminModel");
 const ProductModel= require("../models/productModel");
+const OrderModel = require("../models/orderModel");
 const multer = require('multer');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const cloudinary = require('../cloudinary');
@@ -63,9 +64,14 @@ const adminLogin=async(req, res)=>{
 
 }
 
+const ourOrder=async(req, res)=>{
+    const Order= await OrderModel.find();
+    res.status(200).send(Order);
+}
 
 
 module.exports={
     adminLogin,
-    productSave
+    productSave,
+    ourOrder
 }

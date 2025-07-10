@@ -72,7 +72,7 @@ const initPay = (data) => {
 const handlePay = async () => {
   try {
     const orderURL = "http://localhost:8080/api/payment/orders";
-    const {data} = await axios.post(orderURL,{amount: totalAmount});
+    const {data} = await axios.post(orderURL,{amount: totalAmount, products:productName, name:mydata.name, city:mydata.city, address:mydata.address, pincode:mydata.pincode, email:mydata.email});
     console.log(data);
     initPay(data.data);
   } catch (error) {
