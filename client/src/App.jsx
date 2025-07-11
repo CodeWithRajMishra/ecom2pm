@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Registration from "./pages/Registration";
 import CheckOut from "./pages/CheckOut";
 import CustomerOrder from "./admin/CustomerOrder";
+import ProductDisplay from "./pages/ProductDisplay";
 const App=()=>{
   return(
     <>
@@ -22,6 +23,7 @@ const App=()=>{
            <Route path="/admin" element={<AdminLogin/>}></Route>
            <Route path="cartdata" element={<CartData/>}/>
            <Route path="checkout" element={<CheckOut/>} />
+           <Route path="productdisplay/:id" element={<ProductDisplay/>}/>
           </Route>
          </Routes>
         

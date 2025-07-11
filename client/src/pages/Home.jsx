@@ -5,10 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { addtoCart } from "../cartSlice";
 import { useDispatch } from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Home=()=>{
   const [mydata, setMydata] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const loadData=async()=>{
       let api=`${BackEndUrl}/product/homedisplay`;
@@ -55,7 +57,8 @@ const ans=mydata.map((key)=>{
   return(
     <>
       <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={key.defaultImage} style={{height:"250px"}} />
+    
+      <Card.Img variant="top" src={key.defaultImage} style={{height:"250px", cursor:"pointer"}} onClick={()=>{navigate(`/productdisplay/${key._id}`)}} />
       <Card.Body>
         <Card.Title>{key.name}</Card.Title>
         <Card.Text>
